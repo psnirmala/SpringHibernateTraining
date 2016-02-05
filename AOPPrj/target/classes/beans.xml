@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+
+<context:component-scan base-package="com.genpact.training.aop"></context:component-scan>
+<aop:config>
+<aop:pointcut expression="execution(* com.genpact.training.aop.Instrumentalist.play())" id="testPointcut"/>
+<aop:aspect ref="audience">
+<aop:before method="takeSeats" pointcut-ref="testPointcut"/>
+<aop:before method="switchOffMobilePhones" pointcut-ref="testPointcut"/>
+<aop:after-returning method="applaud" pointcut-ref="testPointcut"/>
+<aop:after-throwing method="demandRefund" pointcut-ref="testPointcut"/>
+<aop:after method="leaveAuditorium" pointcut-ref="testPointcut"/>
+</aop:aspect>
+</aop:config>
+<aop:config>
+<aop:pointcut expression="execution(* com.genpact.training.aop.Number.add(int,int))" id="numberPointcut"/>
+<aop:advisor advice-ref="numberInterceptor" pointcut-ref="numberPointcut"/>
+</aop:config>
+
+</beans>

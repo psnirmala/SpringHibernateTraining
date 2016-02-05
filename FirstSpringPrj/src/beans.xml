@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="emp" class="com.genpact.training.Employee">
+<property name="empId" value="101"></property>
+<property name="empName" value="Arjun"></property>
+<property name="designation" value="Developer"></property>
+<property name="address" ref="add"></property>
+</bean>
+
+<bean id="add" class="com.genpact.training.Address">
+<property name="location" value="Hebbal"></property>
+<property name="city" value="Bangalore"></property>
+</bean>
+
+
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+<util:properties id="props" location="company.properties">
+</util:properties>
+
+<bean id="comp" class="com.genpact.training.Company">
+<property name="name" value="GenPact"></property>
+<property name="properties" ref="props"></property>
+<!--  <property name="properties">
+<props>
+<prop key="location" >Bellandur</prop>
+<prop key="city" >Bangalore</prop>
+<prop key="state" >Karnataka</prop>
+</props>
+</property>
+-->
+
+
+</bean>
+</beans>

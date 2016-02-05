@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<context:component-scan base-package="com.genpact.training"></context:component-scan>
+<bean id="address1" class="com.genpact.training.Address">
+<property name="location" value="Hinjewadi"></property>
+<property name="city" value="Pune"></property>
+</bean>
+<bean id="address2" class="com.genpact.training.Address" autowire-candidate="false">
+<property name="location" value="Vinobha Nagar"></property>
+<property name="city" value="Mysore"></property>
+</bean>
+<bean id="address3" class="com.genpact.training.Address">
+<property name="location" value="Ameerpet"></property>
+<property name="city" value="Hyderabad"></property>
+</bean>
+
+</beans>
